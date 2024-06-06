@@ -3,13 +3,12 @@
   <ion-toolbar>
     <nav>
       <ul class="nav-links">
-          <li class="link"><a href="#">Home</a></li>
-          <li id="link1" class="link"><a href="#">Technologies</a></li>
-          <li id="link2" class="link"><a href="#">Projects</a></li>
-          <li id="link3" class="link"><a href="#">About Me</a></li>
+        <li class="link"><a href="#section--1" class="nav-link">Technologies</a></li>
+        <li class="link"><a href="#section--2" class="nav-link">Projects</a></li>
+        <li class="link"><a href="#section--3" class="nav-link">About Me</a></li>
+        <button class="btn link"><a href=".footer" class="nav-link">Contact Me</a></button>
       </ul>
-      <button class="btn">Contact Me</button>
-    </nav>
+    </nav>    
   
   </ion-toolbar>
 </ion-header>
@@ -20,7 +19,7 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <header class="container section">
     <div class="content">
         <h1 class="header__title">
@@ -245,11 +244,82 @@
     </div>
   </section>
 
-  <footer class="container">
+  <section class="section" id="section--2">
+    <div class="section__title">
+      <h2 class="section__description">Projects</h2>
+      <h3 class="section__header">
+        All my most recents projects and its objectives
+      </h3>
+    </div>
+
+    <div class="projects">
+      <a href="https://guilhermerezende10.github.io/JavaScript/projetos/Bankist/index.html" target="_blank" rel="external">
+        <img
+          src="https://i.im.ge/2024/06/07/KtOLf8.Captura-de-tela-2024-06-06-171256.png"
+          alt="Bankist home page"
+          class="projects__img lazy-img"
+        />
+      </a>
+      <div class="projects__feature">
+        <div class="projects__icon">
+          <svg>
+            <use xlink:href="img/icons.svg#icon-monitor"></use>
+          </svg>
+        </div>
+        <h5 class="projects__header">Bankist</h5>
+        <p>
+          The Bankist site is a aplication developed during a course in JavaScript that is everything you need in a Bank. During that lecture, I went deeper in Array Methods, and how to use them. ForEach, map, filter, reduce, find, findIndex, some, every, flat, flatMap and many others went used in this small project.
+        </p>
+      </div>
+
+      <div class="projects__feature">
+        <div class="projects__icon">
+          <svg>
+            <use xlink:href="img/icons.svg#icon-trending-up"></use>
+          </svg>
+        </div>
+        <h5 class="projects__header">Bankist Website</h5>
+        <p>
+          Bankist is a website that talks about it's service, the Bankist Bank. I've made this project in a course and it was very helpful to learn a lot of concepts like Smooth Scrolling, Event Delegation, DOM Traversing, Event Handlers, how to make Slider Components, Sticky Navigation and others.
+        </p>
+      </div>
+
+      <a href="https://guilhermerezende10.github.io/JavaScript/projetos/Bankist-Website/index.html" target="_blank" rel="external">
+        <img
+          src="https://i.im.ge/2024/06/07/KtOrNx.Captura-de-tela-2024-06-06-170921.png"
+          alt="Bankist Website home page"
+          class="projects__img lazy-img"
+        />
+      </a>
+
+      <a href="https://guilhermerezende10.github.io/JavaScript/projetos/TicTacToe/index.html" target="_blank" rel="external">
+        <img
+          src="https://i.im.ge/2024/06/07/KtOwnq.Captura-de-tela-2024-06-06-171410.png"
+          alt="Tic Tac Toe home page"
+          class="projects__img lazy-img"
+        />
+      </a>
+      <div class="projects__feature">
+        <div class="projects__icon">
+          <svg>
+            <use xlink:href="img/icons.svg#icon-credit-card"></use>
+          </svg>
+        </div>
+        <h5 class="projects__header">Tic Tac Toe</h5>
+        <p>
+          This one was a small minigame that I've made to test myself. I took me two hours and was a good time to put in pratice some concepts that I needed to. It's quite a simple and easy code but it's always good to create a new project and code by yourself.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="socials">
+        <p>Contact Me  &RightArrow;</p>
         <a href="https://github.com/guilhermerezende10" target="_blank" rel="external"><i class="ri-github-line"></i></a>
         <a href="https://www.instagram.com/guilhermerezende.10/" target="_blank" rel="external"><i class="ri-instagram-line"></i></a>
         <a href="https://www.linkedin.com/in/guilherme-rezende-518297235/" target="_blank" rel="external"><i class="ri-linkedin-line"></i></a>
+        <br><p>My email: rezendeguilherme733&#64;gmail.com</p>
     </div>
    </footer>
 

@@ -10,6 +10,43 @@ export class HomePage implements AfterViewInit {
 
   ngAfterViewInit() {
     this.initSlider();
+    this.addLinks();
+  }
+
+  addLinks() {
+    const navLinks = document.querySelector('.nav-links');
+    console.log('navLinks:', navLinks); // Debugging log
+
+    if (!navLinks) return;
+  
+    navLinks.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('Nav link clicked'); // Debugging log
+
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      console.log(anchor)
+      if (anchor && anchor.classList.contains('nav-link')) {
+        const href = anchor.getAttribute('href');
+        console.log('href:', href); // Debugging log
+
+        if (href) {
+          const section = document.querySelector(href); // final target element
+          console.log('section:', section); // Debugging log
+
+          if (section) {
+            this.scrollTo(section as HTMLElement);
+          } else {
+            console.log('Section not found for:', href); // Debugging log
+          }
+        }
+      }
+    });
+  }
+
+  scrollTo(target: HTMLElement) {
+    target.scrollIntoView({ behavior: 'smooth' });
+    console.log('Scrolled to', target); // Debugging log
   }
 
   initSlider() {
@@ -19,8 +56,6 @@ export class HomePage implements AfterViewInit {
       const btnLeft = document.querySelector('.slider__btn--left');
       const btnRight = document.querySelector('.slider__btn--right');
       const dotContainer = document.querySelector('.dots');
-      const btnScrollTo = document.querySelector('.btn--scroll-to');
-      const section1 = document.querySelector('#section--1');
       
       // Ensure necessary elements are present
       if (!slides.length || !slider || !btnLeft || !btnRight || !dotContainer) {
@@ -32,23 +67,21 @@ export class HomePage implements AfterViewInit {
       const maxSlide = slides.length - 1;
       const minSlide = 0;
 
-      const createDots = function () {
+      const createDots = () => {
         slides.forEach((_, i) => {
           dotContainer.insertAdjacentHTML(
             'beforeend',
-            `<button id="btn${i}"data-slide="${i}"></button>`
+            `<button id="btn${i}" data-slide="${i}" class="dots__dot"></button>`
           );
-
+          
           const el = document.getElementById(`btn${i}`);
           if(el) {
-            el?.classList.add('dots__dot')
-            el.style.background = "#b9b9b9"
-            el.style.opacity = '0.5'
-            el.style.borderRadius = '50%'
-            el.style.width = '1rem'
-            el.style.height = '1rem'
-
-          } 
+            el.style.background = "#b9b9b9";
+            el.style.opacity = '0.5';
+            el.style.borderRadius = '50%';
+            el.style.width = '1rem';
+            el.style.height = '1rem';
+          }
         });
       };
 
@@ -73,20 +106,15 @@ export class HomePage implements AfterViewInit {
         if (activeDot) {
           activeDot.style.transition = '0.3s';
           activeDot.style.opacity = '1';
-          activeDot.style.width = '1.15rem'
-          activeDot.style.height = '1.15rem'
+          activeDot.style.width = '1.15rem';
+          activeDot.style.height = '1.15rem';
           activeDot.classList.add('dots__dot--active');
         }
       };
       
-      
-      
-
       const goToSlide = (slide: number) => {
         slides.forEach((s, i) => {
-          (s as HTMLElement).style.transform = `translateX(${
-            (i - slide) * 100
-          }%)`;
+          (s as HTMLElement).style.transform = `translateX(${(i - slide) * 100}%)`;
         });
       };
 
@@ -125,29 +153,21 @@ export class HomePage implements AfterViewInit {
             const slideIndex = parseInt(slide);
             goToSlide(slideIndex);
             activeDot(slideIndex);
+            curSlide = slideIndex
           }
         }
       });
     };
 
     slider();
-    const btnScrollTo = document.querySelector('.btn--scroll-to');
-    const section1 = document.querySelector('#section--1');
-    this.scrollTo(btnScrollTo, section1);
-  }
-
-  scrollTo(btn: any, target: any) {
-   
-
-    if (btn && target) {
-      btn.addEventListener('click', function () {
-        target.scrollIntoView({ behavior: 'smooth' });
-        console.log('entrou');
+    
+    const btnScrollTo = document.querySelector('.btn--scroll-to') as HTMLElement;
+    const section1 = document.querySelector('#section--1') as HTMLElement;
+    if (btnScrollTo && section1) {
+      btnScrollTo.addEventListener('click', () => {
+        section1.scrollIntoView({ behavior: 'smooth' });
+        console.log('Scrolled to section 1');
       });
-    } else {
-      console.log('Button or section not found.');
     }
   }
-
-  
 }
