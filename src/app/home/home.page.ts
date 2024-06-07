@@ -97,8 +97,8 @@ export class HomePage implements AfterViewInit {
         // Remove the active class and set opacity for all dots
         dotContainer.querySelectorAll('.dots__dot').forEach((dot) => {
           (dot as HTMLElement).style.opacity = '0.5';
-          (dot as HTMLElement).style.width = '1rem';
-          (dot as HTMLElement).style.height = '1rem';
+          (dot as HTMLElement).style.width = '0.75rem';
+          (dot as HTMLElement).style.height = '0.75rem';
           dot.classList.remove('dots__dot--active');
         });
       
@@ -106,8 +106,8 @@ export class HomePage implements AfterViewInit {
         if (activeDot) {
           activeDot.style.transition = '0.3s';
           activeDot.style.opacity = '1';
-          activeDot.style.width = '1.15rem';
-          activeDot.style.height = '1.15rem';
+          activeDot.style.width = '1rem';
+          activeDot.style.height = '1rem';
           activeDot.classList.add('dots__dot--active');
         }
       };
