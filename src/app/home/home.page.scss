@@ -369,6 +369,16 @@ footer .socials a:hover {
   border-radius: 15px;
 }
 
+.projects__img:hover {
+  transition: 0.3s;
+  scale: 1.03;
+}
+
+.projects__img:not(:hover) {
+  transition: 0.2s;
+  scale: 1;
+}
+
 .projects__feature {
   transform: translateY(-16%);    
   align-self: center;
@@ -416,17 +426,26 @@ footer .socials a:hover {
 
 .aboutme__content {
   position: relative;
-  width: 30%;
+  width: 40%;
 
-  font-size: 1.3rem;
-  margin: 0px 30px;
+  font-size: 1.2rem;
+  margin: 0px 120px;
 }
 .aboutme__content p {
   font-weight: 100;
   color: #b9b9b9;
+
+  margin-bottom: 15px;
 }
 
 .aboutme__content h4 {
   font-size: 2.5rem;
-  margin: 8px;
+  margin:  0 0 18px 0;
+  text-shadow: 3px 3px #092470d0;
+  font-style: italic;
+
+}
+
+.aboutme img {
+  transform: translateY(10%);
 }
